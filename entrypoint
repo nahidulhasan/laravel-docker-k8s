@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+service nginx restart
+php-fpm
+while true; do sleep 1d; done

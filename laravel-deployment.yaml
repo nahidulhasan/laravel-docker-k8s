@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: laravel
+spec:
+  selector:
+    matchLabels:
+      app: laravel
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+      - name: k8s-test
+        image: docker.io/nahid35/laravel:v3
+        ports:
+        - containerPort: 80
+          name: demo-port
+          protocol: TCP

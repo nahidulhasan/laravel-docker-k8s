@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8083:80
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    volumes_from:
+      - php
+
+  php:
+    build: ./docker/php/
+    volumes:
+      - .:/var/www/html
+      - ./docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    links:
+        - database
+
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=database"
+
+  database:
+        image: mysql:5.7
+        environment:
+          - "MYSQL_ROOT_PASSWORD=common404"
+          - "MYSQL_DATABASE=laravel"
+        volumes:
+          - ${BACKUP_DATA_PATH}/mysql3:/var/lib/mysql
+        ports:
+          - "33065:3306"
+
