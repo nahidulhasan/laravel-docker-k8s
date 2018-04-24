@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  .dockercfg: eyJoYXJib3IucGF0aGFvaW50ZXJuYWwuY29tIjp7InVzZXJuYW1lIjoiazhzIiwicGFzc3dvcmQiOiJBc2RmMTIzNCIsImVtYWlsIjoiZGV2QHBhdGhhby5jb20iLCJhdXRoIjoiYXpoek9rRnpaR1l4TWpNMCJ9fQ==
+kind: Secret
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{".dockercfg":"eyJoYXJib3IucGF0aGFvaW50ZXJuYWwuY29tIjp7InVzZXJuYW1lIjoiazhzIiwicGFzc3dvcmQiOiJBc2RmMTIzNCIsImVtYWlsIjoiZGV2QHBhdGhhby5jb20iLCJhdXRoIjoiYXpoek9rRnpaR1l4TWpNMCJ9fQ=="},"kind":"Secret","metadata":{"annotations":{},"name":"regsecret","namespace":"on-demand"},"type":"kubernetes.io/dockercfg"}
+  creationTimestamp: 2017-10-26T10:13:27Z
+  name: regsecret
+  namespace: laravel
+  resourceVersion: "7576205"
+  selfLink: /api/v1/namespaces/laravel/secrets/regsecret
+  uid: 4f38b81b-ba36-11e7-a90d-42010a8c0117
+type: kubernetes.io/dockercfg

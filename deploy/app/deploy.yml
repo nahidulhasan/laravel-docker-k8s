@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: laravel
+  #namespace: laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laravel-app
+  template:
+    metadata:
+      labels:
+        app: laravel-app
+    spec:
+      containers:
+      - name: laravel-app
+        image: docker.io/nahid35/laravel:v4
+        volumeMounts:
+        - name: app-secret
+          mountPath: "/var/www/html/secret"
+          readOnly: true
+        ports:
+        - containerPort: 80
+          name: pathao-port
+          protocol: TCP
+      volumes:
+      - name: app-secret
+        secret:
+          secretName: laravel-app-secret
+      imagePullSecrets:
+      - name: regsecret

@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mysql-quest-pod
+  namespace: quests-staging-svc
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql-quest-pod
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+          # Use secret in real usage
+        - name: MYSQL_ROOT_PASSWORD
+          value: c0mm0nZaq123useer
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-quest-pv-claim

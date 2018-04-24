@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-quest-pv
+  namespace: quests-staging-svc
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: mysql-disk-quests
+    fsType: ext4

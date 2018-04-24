@@ -1,0 +1,13 @@
+.env
+.git
+deploy/app
+deploy/worker
+deploy/mysql
+deploy/env
+docker
+docker-compose.yml
+docker-compose.yml.example
+.idea
+.DS_Store
+
+storage/logs/*.log
