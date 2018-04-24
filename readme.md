@@ -1,26 +1,71 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 
 # laravel-docker-kubernetes
 
-```docker-compose build```
-```docker-compose up -d```
+### Run the project using docker
 
-browse http://localhost:8083/
+``` 
+ Clone the project
+ 
+ ```
+ 
+ Now run the following command from your terminal one by one
+
+```sh
+docker-compose build
+
+```
 
 
-image build :
+```sh
+docker-compose up -d
 
+```
+
+Now browse project 
+
+ ```
+ http://localhost:8083/
+
+```
+ 
+### Deploy the project using Kubernetes
+
+At first build image running the command:
+
+```sh
 docker build . -f ./deploy/dockerfile -t laravel:v4
 
+```
 
-docker login
+Now login in docker hub
 
-docker tag laravel:v4 docker.io/nahid35/laravel:v4
+ ```
+ docker login
+ 
+ ```
 
+Now run the following command for Pushing image in docker registry
+
+```
+  docker tag laravel:v4 docker.io/nahid35/laravel:v4
+```
+
+```
 docker push docker.io/nahid35/laravel:v4
 
+```
+
+Now run minikube 
+
+```
 minikube start
+
+```
+
+Now run the following commands for deploying your project:
+
+```
 
 kubectl apply -f deploy/app/secret.yml
 
@@ -28,15 +73,41 @@ kubectl apply -f deploy/app/deploy.yml
 
 kubectl apply -f deploy/app/service.yml
 
+
+``` 
+
+Now run the following commands to see minikube dashboard:
+
+```
 minikube dashboard
 
-kubectl get svc
+```
 
+You will get this url :
+
+```
 http://192.168.99.100:30000/#!/overview?namespace=default
 
-NAME          TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-kubernetes    ClusterIP      10.0.0.1     <none>        443/TCP        27d
-laravel-api   LoadBalancer   10.0.0.11    <pending>     80:32676/TCP   4m
-pdf-api       LoadBalancer   10.0.0.39    <pending>     80:32391/TCP   27d
+```
 
-browse http://192.168.99.100:32676/
+
+``` 
+kubectl get svc
+
+```
+
+Running above command you will get following information:
+
+
+NAME     |     TYPE      |     CLUSTER-IP  |  EXTERNAL-IP   |  PORT(S)   |     AGE
+---------|---------------|-----------------|----------------|------------|----------
+kubernetes  |  ClusterIP  |    10.0.0.1   |  <none>      |  443/TCP      |  27d
+laravel-api  | LoadBalancer  | 10.0.0.11  |  <pending>   |  80:32676/TCP  |  4m
+
+
+Now you can browse your project using followin url :
+
+```
+ http://192.168.99.100:32676/
+
+``` 
