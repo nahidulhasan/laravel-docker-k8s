@@ -12,7 +12,7 @@ From here you will be able to know that how you will run your  Laravel project u
  ```
  
  Now run the following command from your terminal one by one. Running the commands be sure that you have installed docker.You will get install instructions from this
- [link](https://docs.docker.com/)
+ [link](https://docs.docker.com/){:target="_blank"}
 
 ```sh
 docker-compose build
@@ -60,7 +60,7 @@ docker push docker.io/nahid35/laravel:v4
 ```
 
 Now run minikube. Running the commands be sure that you have installed minikube.You will install instructions from this 
-[link](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+[link](https://kubernetes.io/docs/tasks/tools/install-minikube/){:target="_blank"}
 
 ```
 minikube start
