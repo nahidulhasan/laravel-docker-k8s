@@ -2,6 +2,8 @@
 
 # laravel-docker-kubernetes
 
+From here you will be able to know that how you will run your  Laravel project using Docker and how you will deploy using Kubernetes(minikube) 
+
 ### Run the project using docker
 
 ``` 
