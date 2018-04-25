@@ -41,7 +41,7 @@ docker build . -f ./deploy/dockerfile -t laravel:v4
 
 ```
 
-Now login in docker hub. Running the command be sure that you have created an account in docker hub. If not got to the 
+Now login in docker hub. Running the command be sure that you have created an account in docker hub. If not go to the 
 [link](https://hub.docker.com/) and create account.
 
  ```
@@ -61,8 +61,8 @@ docker push docker.io/nahid35/laravel:v4
 
 ```
 
-Now run minikube. Running the commands be sure that you have installed minikube.You will install instructions from this 
-[link](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+Now run minikube. Running the commands be sure that you have installed minikube.
+If not installed, you can get install instructions from this [link](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
 ```
 minikube start
@@ -111,7 +111,7 @@ kubernetes  |  ClusterIP  |    10.0.0.1   |  <none>      |  443/TCP      |  27d
 laravel-api  | LoadBalancer  | 10.0.0.11  |  <pending>   |  80:32676/TCP  |  4m
 
 
-Now you can browse your project using followin url :
+Now you can browse your project using following url :
 
 ```
  http://192.168.99.100:32676/
@@ -125,7 +125,7 @@ Now you can browse your project using followin url :
 > - If you modify .env file, You have to run following command:
 
 ```  
-base64 -b -i deploy/env/.env
+     base64 -b -i deploy/env/.env
 ```
 
 > - Running the command you will get base 64 encoded string. Put the string in deploy\app\secret.yml. And then run the commands for deploying.
