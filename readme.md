@@ -120,12 +120,14 @@ Now you can browse your project using followin url :
 
 ### Extra Note :
 
-If you modify .env file, You have to run following command:
+> - If you want to use different database or different port etc, You have to change in the docker-compose.yml file.
+
+> - If you modify .env file, You have to run following command:
 
 ```  
 base64 -b -i deploy/env/.env
 ```
 
-Running the command you will get base 64 encoded string. Put the string in deploy\app\secret.yml. And then run the commands for deploying.
+> - Running the command you will get base 64 encoded string. Put the string in deploy\app\secret.yml. And then run the commands for deploying.
 
 
