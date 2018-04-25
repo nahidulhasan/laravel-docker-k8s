@@ -7,7 +7,7 @@ From here you will be able to know that how you will run your  Laravel project u
 ### Run the project using docker
 
 ``` 
- Clone the project
+Clone the project
  
  ```
  
@@ -53,7 +53,8 @@ Now run the following command for Pushing image in docker registry.In the comman
 Modify command according to your docker id, repository name and tag name.
 
 ```
-  docker tag laravel:v4 docker.io/nahid35/laravel:v4
+docker tag laravel:v4 docker.io/nahid35/laravel:v4
+
 ```
 
 ```
