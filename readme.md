@@ -41,14 +41,16 @@ docker build . -f ./deploy/dockerfile -t laravel:v4
 
 ```
 
-Now login in docker hub
+Now login in docker hub. Running the command be sure that you have created an account in docker hub. If not got to the 
+[link](https://hub.docker.com/) and create account.
 
  ```
  docker login
  
  ```
 
-Now run the following command for Pushing image in docker registry
+Now run the following command for Pushing image in docker registry.In the command nahid35 is my docker id and laravel is repository name and v4 is tag name.
+Modify command according to your docker id, repository name and tag name.
 
 ```
   docker tag laravel:v4 docker.io/nahid35/laravel:v4
@@ -115,3 +117,15 @@ Now you can browse your project using followin url :
  http://192.168.99.100:32676/
 
 ``` 
+
+### Extra Note :
+
+If you modify .env file, You have to run following command:
+
+```  
+base64 -b -i deploy/env/.env
+```
+
+Running the command you will get base 64 encoded string. Put the string in deploy\app\secret.yml. And then run the commands for deploying.
+
+
