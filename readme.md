@@ -70,9 +70,10 @@ minikube start
 
 ```
 
-Now run the following commands for deploying your project:
+Now run the following commands for deploying App from your project directory :
 
 ```
+alias kubectl="minikube kubectl --"
 
 kubectl apply -f deploy/app/secret.yml
 
@@ -112,10 +113,29 @@ kubernetes  |  ClusterIP  |    10.0.0.1   |  <none>      |  443/TCP      |  27d
 laravel-api  | LoadBalancer  | 10.0.0.11  |  <pending>   |  80:32676/TCP  |  4m
 
 
+``` 
+minikube service list
+
+```
+
+Running above command you will get following information:
+
+|----------------------|---------------------------|-----------------|---------------------------|
+|      NAMESPACE       |           NAME            |   TARGET PORT   |            URL            |
+|----------------------|---------------------------|-----------------|---------------------------|
+| default              | kubernetes                | No node port    |
+| default              | laravel-api               | pat-api-port/80 | http://192.168.49.2:31223 |
+| kube-system          | kube-dns                  | No node port    |
+| kube-system          | metrics-server            | No node port    |
+| kubernetes-dashboard | dashboard-metrics-scraper | No node port    |
+| kubernetes-dashboard | kubernetes-dashboard      | No node port    |
+|----------------------|---------------------------|-----------------|---------------------------|
+
+
 Now you can browse your project using following url :
 
 ```
- http://192.168.99.100:32676/
+ http://192.168.49.2:31223
 
 ``` 
 
